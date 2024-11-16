@@ -1,0 +1,15 @@
+apiVersion: v1
+entries:
+  httpbin:
+  - apiVersion: v2
+    appVersion: 0.2.1
+    created: "2024-11-16T21:41:33.81850584Z"
+    description: A simple HTTP service
+    digest: 0c3fc97521e9555ac388ed31fd5980c5d11b4862be23b99454eb59122c097a54
+    icon: https://www.gravatar.com/avatar/3ce636b61904e0ada7d7fb13137fa422
+    name: httpbin
+    type: application
+    urls:
+    - https://github.com/illallangi/helm-charts/releases/download/httpbin-0.1.0/httpbin-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-11-16T21:41:33.818512842Z"
