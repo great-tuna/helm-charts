@@ -1,5 +1,20 @@
 apiVersion: v1
 entries:
+  akri:
+  - apiVersion: v2
+    appVersion: 0.12.20
+    created: "2024-11-17T02:18:42.542376261Z"
+    dependencies:
+    - name: akri
+      repository: https://project-akri.github.io/akri/
+      version: 0.12.20
+    digest: 4c64d7317df1b27d94b412578ea14949411100fed4fe11a8255674a688a11f1a
+    icon: https://avatars.githubusercontent.com/u/91915613
+    name: akri
+    type: application
+    urls:
+    - https://github.com/illallangi/helm-charts/releases/download/akri-0.1.0/akri-0.1.0.tgz
+    version: 0.1.0
   httpbin:
   - apiVersion: v2
     appVersion: 0.2.1
@@ -12,4 +27,4 @@ entries:
     urls:
     - https://github.com/illallangi/helm-charts/releases/download/httpbin-0.1.0/httpbin-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-16T21:41:33.818512842Z"
+generated: "2024-11-17T02:18:42.542405575Z"
