@@ -1,1 +1,4 @@
-charts/*/charts
+/charts/*/charts
+/moo
+/templates
+/values.yaml
