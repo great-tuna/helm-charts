@@ -1,0 +1,14 @@
+---
+apiVersion: akri.sh/v0
+kind: Configuration
+metadata:
+  name: infinite-noise
+spec:
+  discoveryHandler:
+    discoveryDetails: |
+      groupRecursive: true
+      udevRules: 
+      - ATTR{idVendor}=="0403", ATTR{idProduct}=="6015"
+    name: udev
+  brokerProperties: {}
+  capacity: 1

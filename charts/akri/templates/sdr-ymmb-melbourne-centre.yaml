@@ -1,0 +1,15 @@
+---
+apiVersion: akri.sh/v0
+kind: Configuration
+metadata:
+  name: sdr-ymmb-melbourne-centre
+spec:
+  discoveryHandler:
+    discoveryDetails: |
+      groupRecursive: true
+      udevRules:
+      - ATTR{idVendor}=="0bda", ATTR{idProduct}=="2832", ATTR{serial}=="13570"
+      - ATTR{idVendor}=="0bda", ATTR{idProduct}=="2838", ATTR{serial}=="13570"
+    name: udev
+  brokerProperties: {}
+  capacity: 1

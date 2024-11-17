@@ -1,0 +1,14 @@
+---
+apiVersion: akri.sh/v0
+kind: Configuration
+metadata:
+  name: yubikey-yellow
+spec:
+  discoveryHandler:
+    discoveryDetails: |
+      groupRecursive: true
+      udevRules: 
+      - ATTR{idVendor}=="1050", ATTR{idProduct}=="0407", ATTR{serial}=="0030695886"
+    name: udev
+  brokerProperties: {}
+  capacity: 1

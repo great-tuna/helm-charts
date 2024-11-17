@@ -1,0 +1,14 @@
+---
+apiVersion: akri.sh/v0
+kind: Configuration
+metadata:
+  name: macrosilicon
+spec:
+  discoveryHandler:
+    discoveryDetails: |+
+      groupRecursive: true
+      udevRules:
+      - ATTRS{manufacturer}=="MACROSILICON"
+    name: udev
+  brokerProperties: {}
+  capacity: 1

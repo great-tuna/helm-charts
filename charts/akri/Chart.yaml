@@ -1,0 +1,12 @@
+apiVersion: v2
+name: akri
+type: application
+version: 0.1.0
+appVersion: "0.12.20"
+
+icon: https://avatars.githubusercontent.com/u/91915613
+
+dependencies:
+- name: akri
+  version: 0.12.20
+  repository: https://project-akri.github.io/akri/
