@@ -1,0 +1,35 @@
+{{- if .Values.ingress.enabled -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "adsb.fullname" . }}
+  labels:
+    {{- include "adsb.labels" . | nindent 4 }}
+    app.kubernetes.io/component: ""
+  {{- with .Values.ingress.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  {{- with .Values.ingress.className }}
+  ingressClassName: {{ . }}
+  {{- end }}
+  rules:
+    {{- with .Values.fqdn }}
+    - host: {{ . | quote }}
+    {{- end }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ include "adsb.fullname" $ }}-http
+                port:
+                  name: http
+  {{- with .Values.fqdn }}
+  tls:
+  - hosts:
+    - {{ . | quote }}
+  {{- end }}
+{{- end }}

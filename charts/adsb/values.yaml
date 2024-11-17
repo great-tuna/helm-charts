@@ -1,0 +1,11 @@
+ultrafeeder:
+  image:
+    repository: ghcr.io/sdr-enthusiasts/docker-adsb-ultrafeeder
+    tag: ""
+    pullPolicy: IfNotPresent
+  resources: {}
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}

@@ -1,0 +1,156 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "adsb.fullname" . }}-ultrafeeder
+  labels:
+    {{- include "adsb.labels" . | nindent 4 }}
+    app.kubernetes.io/component: ultrafeeder
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "adsb.selectorLabels" . | nindent 6 }}
+      app.kubernetes.io/component: ultrafeeder
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kubectl.kubernetes.io/default-container: ultrafeeder
+      labels:
+        {{- include "adsb.selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/component: ultrafeeder
+    spec:
+      serviceAccountName: {{ include "adsb.fullname" . }}
+      securityContext:
+        {}
+      containers:
+        - env:
+            - name: LOGLEVEL
+              value: error
+            - name: TZ
+              valueFrom:
+                configMapKeyRef:
+                  key: timezone
+                  name: {{ include "adsb.fullname" . }}
+            - name: READSB_DEVICE_TYPE
+              value: rtlsdr
+            - name: READSB_RTLSDR_DEVICE
+              value: "109000"
+            - name: READSB_LAT
+              valueFrom:
+                configMapKeyRef:
+                  key: latitude
+                  name: {{ include "adsb.fullname" . }}
+            - name: READSB_LON
+              valueFrom:
+                configMapKeyRef:
+                  key: longitude
+                  name: {{ include "adsb.fullname" . }}
+            - name: READSB_ALT
+              valueFrom:
+                configMapKeyRef:
+                  key: altitude
+                  name: {{ include "adsb.fullname" . }}
+            - name: UPDATE_TAR1090
+              value: "true"
+            - name: TAR1090_DEFAULTCENTERLAT
+              valueFrom:
+                configMapKeyRef:
+                  key: latitude
+                  name: {{ include "adsb.fullname" . }}
+            - name: TAR1090_DEFAULTCENTERLON
+              valueFrom:
+                configMapKeyRef:
+                  key: longitude
+                  name: {{ include "adsb.fullname" . }}
+            - name: TAR1090_MESSAGERATEINTITLE
+              value: "true"
+            - name: TAR1090_PAGETITLE
+              valueFrom:
+                configMapKeyRef:
+                  key: title
+                  name: {{ include "adsb.fullname" . }}
+            - name: TAR1090_PLANECOUNTINTITLE
+              value: "true"
+            - name: TAR1090_ENABLE_AC_DB
+              value: "true"
+            - name: TAR1090_FLIGHTAWARELINKS
+              value: "true"
+            - name: TAR1090_SITESHOW
+              value: "true"
+            - name: TAR1090_RANGE_OUTLINE_COLORED_BY_ALTITUDE
+              value: "true"
+            - name: TAR1090_RANGE_OUTLINE_WIDTH
+              value: "2.0"
+            - name: TAR1090_RANGERINGSDISTANCES
+              value: 50,100,150,200
+            - name: TAR1090_RANGERINGSCOLORS
+              value: '''#1A237E'',''#0D47A1'',''#42A5F5'',''#64B5F6'''
+            - name: TAR1090_USEROUTEAPI
+              value: "true"
+            - name: GRAPHS1090_DARKMODE
+              value: "true"
+          name: ultrafeeder
+          securityContext:
+            privileged: true
+          image: "{{ .Values.ultrafeeder.image.repository }}:{{ .Values.ultrafeeder.image.tag | default "latest" }}"
+          imagePullPolicy: {{ .Values.ultrafeeder.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+            - name: basestation
+              containerPort: 30003
+              protocol: TCP
+            - name: beast
+              containerPort: 30005
+              protocol: TCP
+          livenessProbe:
+            tcpSocket:
+              port: http
+          startupProbe:
+            failureThreshold: 30
+            tcpSocket:
+              port: http
+          resources:
+            {{- toYaml .Values.ultrafeeder.resources | nindent 12 }}
+          volumeMounts:
+            - mountPath: /var/globe_history
+              name: persistence
+              subPath: var/globe_history
+            - mountPath: /var/lib/collectd
+              name: persistence
+              subPath: var/lib/collectd
+            - mountPath: /dev/bus/usb
+              name: usb
+            - mountPath: /proc/diskstats
+              name: diskstats
+            - mountPath: /run
+              name: scratch
+              subPath: run
+            - mountPath: /tmp
+              name: scratch
+              subPath: tmp
+            - mountPath: /var/log
+              name: scratch
+              subPath: var/log
+      dnsConfig:
+        options:
+        - name: ndots
+          value: "1"
+      dnsPolicy: ClusterFirst
+      volumes:
+        - hostPath:
+            path: /dev/bus/usb
+            type: Directory
+          name: usb
+        - hostPath:
+            path: /proc/diskstats
+            type: File
+          name: diskstats
+        - emptyDir: {}
+          name: scratch
+        - name: persistence
+          persistentVolumeClaim:
+            claimName: {{ include "adsb.fullname" . }}

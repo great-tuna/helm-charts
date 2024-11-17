@@ -1,0 +1,20 @@
+{{- $altitude := .Values.location.altitude | required ".Values.location.altitude is required." -}}
+{{- $title := .Values.title | required ".Values.title is required." -}}
+{{- $fqdn := .Values.fqdn | required ".Values.fqdn is required." -}}
+{{- $timezone := .Values.timezone | required ".Values.timezone is required." -}}
+{{- $longitude := .Values.location.longitude | required ".Values.location.longitude is required." -}}
+{{- $latitude := .Values.location.latitude | required ".Values.location.latitude is required." -}}
+apiVersion: v1
+data:
+  altitude: "{{ $altitude }}m"
+  latitude: {{ $latitude | quote }}
+  longitude: {{ $longitude | quote }}
+  timezone: {{ $timezone | quote }}
+  title: {{ $title | quote }}
+  url: {{ $fqdn | quote }}
+kind: ConfigMap
+metadata:
+  name: {{ include "adsb.fullname" . }}
+  labels:
+    app.kubernetes.io/component: ""
+    {{- include "adsb.labels" . | nindent 4 }}
