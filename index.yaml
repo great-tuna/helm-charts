@@ -1,5 +1,17 @@
 apiVersion: v1
 entries:
+  adsb:
+  - apiVersion: v2
+    appVersion: "561"
+    created: "2024-11-17T09:35:06.022868676Z"
+    description: ADS-B data collector service
+    digest: f77f12960c9b620a383c71561d3addbc2f510b93930d73041fe7b02685b321ea
+    icon: https://avatars.githubusercontent.com/u/98966214
+    name: adsb
+    type: application
+    urls:
+    - https://github.com/illallangi/helm-charts/releases/download/adsb-0.1.0/adsb-0.1.0.tgz
+    version: 0.1.0
   akri:
   - apiVersion: v2
     appVersion: 0.12.20
@@ -27,4 +39,4 @@ entries:
     urls:
     - https://github.com/illallangi/helm-charts/releases/download/httpbin-0.1.0/httpbin-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-17T02:18:42.542405575Z"
+generated: "2024-11-17T09:35:06.022877312Z"
