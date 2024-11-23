@@ -37,6 +37,22 @@ entries:
   akri:
   - apiVersion: v2
     appVersion: 0.12.20
+    created: "2024-11-23T16:17:12.872097029Z"
+    dependencies:
+    - name: akri
+      repository: https://project-akri.github.io/akri/
+      version: 0.12.20
+    description: Kubernetes Resource Interface that lets you easily expose heterogeneous
+      leaf devices
+    digest: 4501c54d9417e11bf8efa306b91d5a8ef5cfb480211421fff57741a6f5c9b7cb
+    icon: https://avatars.githubusercontent.com/u/91915613
+    name: akri
+    type: application
+    urls:
+    - https://github.com/illallangi/helm-charts/releases/download/akri-0.1.6/akri-0.1.6.tgz
+    version: 0.1.6
+  - apiVersion: v2
+    appVersion: 0.12.20
     created: "2024-11-23T15:03:00.301348731Z"
     dependencies:
     - name: akri
@@ -175,4 +191,4 @@ entries:
     urls:
     - https://github.com/illallangi/helm-charts/releases/download/tailscale-operator-0.1.0/tailscale-operator-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-23T15:03:00.301383116Z"
+generated: "2024-11-23T16:17:12.872154116Z"
