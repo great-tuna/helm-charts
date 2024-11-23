@@ -2,7 +2,7 @@ apiVersion: v2
 name: akri
 description: Kubernetes Resource Interface that lets you easily expose heterogeneous leaf devices
 type: application
-version: 0.1.5
+version: 0.1.6
 appVersion: "0.12.20"
 icon: https://avatars.githubusercontent.com/u/91915613
 dependencies:
