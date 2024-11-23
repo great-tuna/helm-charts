@@ -1,0 +1,16 @@
+{{- $vaultName := .Values.azureKeyVaultSecret.vaultName | required ".Values.azureKeyVaultSecret.vaultName is required." -}}
+apiVersion: spv.no/v2beta1
+kind: AzureKeyVaultSecret
+metadata:
+  name: operator-oauth-tailscale-client-id
+  namespace: {{ .Release.Namespace }}
+spec:
+  vault:
+    name: {{ $vaultName }}
+    object:
+      name: {{ .Values.azureKeyVaultSecret.tailscaleClientIdSecretName }}
+      type: secret
+  output: 
+    secret: 
+      name: operator-oauth
+      dataKey: client_id
