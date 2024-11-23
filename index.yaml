@@ -129,6 +129,22 @@ entries:
     urls:
     - https://github.com/illallangi/helm-charts/releases/download/akri-0.1.0/akri-0.1.0.tgz
     version: 0.1.0
+  cloudflare:
+  - apiVersion: v2
+    appVersion: 0.0.16
+    created: "2024-11-23T16:42:38.257030268Z"
+    dependencies:
+    - name: cloudflare-tunnel-ingress-controller
+      repository: https://helm.strrl.dev
+      version: 0.0.16
+    description: Illallangi Customised Helm chart for Cloudflare
+    digest: 994626ecb917e1082910643a2ca09212f254c81da71e6bf9fa7d6659949ccb4f
+    icon: https://avatars.githubusercontent.com/u/314135
+    name: cloudflare
+    type: application
+    urls:
+    - https://github.com/illallangi/helm-charts/releases/download/cloudflare-0.1.0/cloudflare-0.1.0.tgz
+    version: 0.1.0
   folder2k8s:
   - apiVersion: v2
     appVersion: 0.1.0
@@ -191,4 +207,4 @@ entries:
     urls:
     - https://github.com/illallangi/helm-charts/releases/download/tailscale-operator-0.1.0/tailscale-operator-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-23T16:17:12.872154116Z"
+generated: "2024-11-23T16:42:38.257059763Z"
