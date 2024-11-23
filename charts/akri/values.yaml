@@ -3,3 +3,8 @@ akri:
   udev:
     discovery:
       enabled: true
+      nodeSelectors:
+        - key: kubernetes.io/arch
+          operator: In
+          values:
+            - arm64
