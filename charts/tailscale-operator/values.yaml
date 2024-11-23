@@ -2,3 +2,6 @@ azureKeyVaultSecret:
   vaultName:
   tailscaleClientIdSecretName: tailscale-client-id
   tailscaleClientSecretSecretName: tailscale-client-secret
+tailscale-operator:
+  apiServerProxyConfig:
+    mode: "true"

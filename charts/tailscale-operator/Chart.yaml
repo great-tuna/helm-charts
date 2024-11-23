@@ -2,6 +2,10 @@ apiVersion: v2
 name: tailscale-operator
 description: A Helm chart for Tailscale Kubernetes operator
 type: application
-version: 0.1.0
+version: 0.1.1
 appVersion: "1.76.6"
 icon: https://avatars.githubusercontent.com/u/48932923
+dependencies:
+- name: tailscale-operator
+  version: 1.76.6
+  repository: https://pkgs.tailscale.com/helmcharts
