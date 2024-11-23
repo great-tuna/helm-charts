@@ -1,0 +1,11 @@
+apiVersion: v2
+name: cloudflare
+description: Illallangi Customised Helm chart for Cloudflare
+type: application
+version: 0.1.0
+appVersion: "0.0.16"
+icon: https://avatars.githubusercontent.com/u/314135
+dependencies:
+- name: cloudflare-tunnel-ingress-controller
+  version: 0.0.16
+  repository: https://helm.strrl.dev

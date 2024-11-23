@@ -1,0 +1,9 @@
+azureKeyVaultSecret:
+  vaultName:
+cloudflare-tunnel-ingress-controller:
+  cloudflare:
+    secretRef:
+      name: cloudflare
+      accountIDKey: cloudflare-account-id
+      tunnelNameKey: cloudflare-tunnel-name
+      apiTokenKey: api-token

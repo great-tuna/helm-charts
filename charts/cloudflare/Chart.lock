@@ -1,0 +1,6 @@
+dependencies:
+- name: cloudflare-tunnel-ingress-controller
+  repository: https://helm.strrl.dev
+  version: 0.0.16
+digest: sha256:cb5b3a0699c6ce3d537a912f327dccc4ed3d7f5d860d66724ebf9b7eaa3afb65
+generated: "2024-11-24T03:34:48.043724044+11:00"

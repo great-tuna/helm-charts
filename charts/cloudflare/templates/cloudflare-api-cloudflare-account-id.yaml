@@ -1,0 +1,16 @@
+{{- $vaultName := .Values.azureKeyVaultSecret.vaultName | required ".Values.azureKeyVaultSecret.vaultName is required." -}}
+apiVersion: spv.no/v2beta1
+kind: AzureKeyVaultSecret
+metadata:
+  name: {{ index .Values "cloudflare-tunnel-ingress-controller" "cloudflare" "secretRef" "name" }}-{{ index .Values "cloudflare-tunnel-ingress-controller" "cloudflare" "secretRef" "accountIDKey" }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  vault:
+    name: {{ $vaultName }}
+    object:
+      name: {{ index .Values "cloudflare-tunnel-ingress-controller" "cloudflare" "secretRef" "accountIDKey" }}
+      type: secret
+  output: 
+    secret: 
+      name: {{ index .Values "cloudflare-tunnel-ingress-controller" "cloudflare" "secretRef" "name" }}
+      dataKey: {{ index .Values "cloudflare-tunnel-ingress-controller" "cloudflare" "secretRef" "accountIDKey" }}
