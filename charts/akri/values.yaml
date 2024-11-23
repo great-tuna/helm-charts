@@ -4,7 +4,4 @@ akri:
     discovery:
       enabled: true
       nodeSelectors:
-        - key: kubernetes.io/arch
-          operator: In
-          values:
-            - arm64
+        kubernetes.io/arch: arm64
