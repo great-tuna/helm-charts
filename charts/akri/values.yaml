@@ -1,4 +1,7 @@
 akri:
+  agents:
+      nodeSelectors:
+        kubernetes.io/arch: arm64
   kubernetesDistro: k3s
   udev:
     discovery:
