@@ -6,4 +6,4 @@ cloudflare-tunnel-ingress-controller:
       name: cloudflare
       accountIDKey: cloudflare-account-id
       tunnelNameKey: cloudflare-tunnel-name
-      apiTokenKey: api-token
+      apiTokenKey: cloudflare-api-token
