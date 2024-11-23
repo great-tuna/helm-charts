@@ -3,6 +3,17 @@ entries:
   adsb:
   - apiVersion: v2
     appVersion: "561"
+    created: "2024-11-23T15:00:34.964185067Z"
+    description: ADS-B data collector service
+    digest: d6a181a051ea9e7dc4a0dad0d4097bf82fecf23709ccc585bf911cebd92cc41c
+    icon: https://avatars.githubusercontent.com/u/98966214
+    name: adsb
+    type: application
+    urls:
+    - https://github.com/illallangi/helm-charts/releases/download/adsb-0.1.2/adsb-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: "561"
     created: "2024-11-17T09:41:48.561561044Z"
     description: ADS-B data collector service
     digest: 9cdeaf3b71a95464a3ed76bf013c6ddbe841f0f7938bfe5cdbc474c3179caeef
@@ -148,4 +159,4 @@ entries:
     urls:
     - https://github.com/illallangi/helm-charts/releases/download/tailscale-operator-0.1.0/tailscale-operator-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-23T14:54:45.322097405Z"
+generated: "2024-11-23T15:00:34.964212809Z"
