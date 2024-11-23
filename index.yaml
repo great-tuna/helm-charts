@@ -108,6 +108,21 @@ entries:
   tailscale-operator:
   - apiVersion: v2
     appVersion: 1.76.6
+    created: "2024-11-23T14:29:13.311416293Z"
+    dependencies:
+    - name: tailscale-operator
+      repository: https://pkgs.tailscale.com/helmcharts
+      version: 1.76.6
+    description: A Helm chart for Tailscale Kubernetes operator
+    digest: 1a54006d7bf64fbcbbcf0742386134d1d1f603c732402c164201161887f1cdfd
+    icon: https://avatars.githubusercontent.com/u/48932923
+    name: tailscale-operator
+    type: application
+    urls:
+    - https://github.com/illallangi/helm-charts/releases/download/tailscale-operator-0.1.1/tailscale-operator-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.76.6
     created: "2024-11-23T14:18:52.776897855Z"
     description: A Helm chart for Tailscale Kubernetes operator
     digest: 7df8f639d5fb6f035c1306c7b3f5c68cf1e5301c9df0e614d691a3a563f6b45e
@@ -117,4 +132,4 @@ entries:
     urls:
     - https://github.com/illallangi/helm-charts/releases/download/tailscale-operator-0.1.0/tailscale-operator-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-23T14:18:52.77692701Z"
+generated: "2024-11-23T14:29:13.311429767Z"
