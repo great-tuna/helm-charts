@@ -1,0 +1,155 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "adsb.fullname" . }}-fence
+  labels:
+    {{- include "adsb.labels" . | nindent 4 }}
+    app.kubernetes.io/component: fence
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "adsb.selectorLabels" . | nindent 6 }}
+      app.kubernetes.io/component: fence
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        kubectl.kubernetes.io/default-container: fence
+      labels:
+        {{- include "adsb.selectorLabels" . | nindent 8 }}
+        app.kubernetes.io/component: fence
+    spec:
+      serviceAccountName: {{ include "adsb.fullname" . }}
+      securityContext:
+        {}
+      containers:
+        - env:
+            - name: LOGLEVEL
+              value: error
+            - name: TZ
+              valueFrom:
+                configMapKeyRef:
+                  key: timezone
+                  name: {{ include "adsb.fullname" . }}
+          name: fence
+          securityContext:
+            {}
+          image: "{{ .Values.fence.image.repository }}:{{ .Values.fence.image.tag | default "latest" }}"
+          imagePullPolicy: {{ .Values.fence.image.pullPolicy }}
+          resources:
+            {{- toYaml .Values.fence.resources | nindent 12 }}
+          volumeMounts:
+            - mountPath: /usr/share/planefence/persist
+              name: scratch
+              subPath: usr/share/planefence/persist
+            - mountPath: /usr/share/planefence/html
+              name: scratch
+              subPath: usr/share/planefence/html
+            - mountPath: /usr/share/socket30003/socket30003.pl
+              name: {{ include "adsb.fullname" . }}-fence
+              subPath: socket3003.pl
+      dnsConfig:
+        options:
+        - name: ndots
+          value: "1"
+      dnsPolicy: ClusterFirst
+      initContainers:
+        - args:
+          - --extension=jinja2_ansible_filters.AnsibleCoreFiltersExtension
+          - --extension=jinja2_getenv_extension.GetenvExtension
+          - --strict
+          - --outfile=/output/planefence.config
+          - /input/planefence.config.j2
+          env:
+          - name: FEEDER_LAT
+            valueFrom:
+              configMapKeyRef:
+                key: latitude
+                name: {{ include "adsb.fullname" . }}
+          - name: FEEDER_LON
+            valueFrom:
+              configMapKeyRef:
+                key: longitude
+                name: {{ include "adsb.fullname" . }}
+          - name: PF_MAXDIST
+            valueFrom:
+              configMapKeyRef:
+                key: distance
+                name: {{ include "adsb.fullname" . }}-fence
+          - name: PF_NAME
+            valueFrom:
+              configMapKeyRef:
+                key: title
+                name: {{ include "adsb.fullname" . }}
+          - name: PF_MAPURL
+            valueFrom:
+              configMapKeyRef:
+                key: url
+                name: {{ include "adsb.fullname" . }}
+          - name: PF_SOCK30003HOST
+            value: {{ include "adsb.fullname" . }}-basestation.{{ .Release.Namespace }}.svc.cluster.local
+          - name: PF_SOCK30003PORT
+            value: "30003"
+          - name: MASTODON_SERVER
+            valueFrom:
+              configMapKeyRef:
+                key: mastodonUrl
+                name: {{ include "adsb.fullname" . }}
+          - name: MASTODON_ACCESS_TOKEN
+            valueFrom:
+              secretKeyRef:
+                key: mastodon
+                name: {{ include "adsb.fullname" . }}
+          name: init-jinja
+          securityContext:
+            {}
+          image: "{{ .Values.jinja.image.repository }}:{{ .Values.jinja.image.tag | default "latest" }}"
+          imagePullPolicy: {{ .Values.jinja.image.pullPolicy | default "Always" }}
+          volumeMounts:
+          - mountPath: /output
+            name: scratch
+            subPath: usr/share/planefence/persist
+          - mountPath: /input/planefence.config.j2
+            name: {{ include "adsb.fullname" . }}-fence
+            subPath: planefence.config.j2
+        - command:
+          - /bin/bash
+          - -c
+          - |
+            set -euo pipefail
+            curl https://${MASTODON_SERVER}/api/v1/statuses -H "Authorization: Bearer ${MASTODON_ACCESS_TOKEN}" -F "status=${FEEDER_TITLE} is now online! #adsb #dump1090 #tar1090 #graphs1090 #ultrafeeder"
+          env:
+          - name: FEEDER_TITLE
+            valueFrom:
+              configMapKeyRef:
+                key: title
+                name: {{ include "adsb.fullname" . }}
+          - name: MASTODON_SERVER
+            value: mastodon.illallangi.enterprises
+          - name: MASTODON_ACCESS_TOKEN
+            valueFrom:
+              secretKeyRef:
+                key: mastodon
+                name: {{ include "adsb.fullname" . }}
+          name: init-toot
+          securityContext:
+            {}
+          image: "{{ .Values.toolbox.image.repository }}:{{ .Values.toolbox.image.tag | default "latest" }}"
+          imagePullPolicy: {{ .Values.toolbox.image.pullPolicy | default "Always" }}
+      volumes:
+        - emptyDir: {}
+          name: scratch
+        - name: {{ include "adsb.fullname" . }}-fence
+          projected:
+            defaultMode: 420
+            sources:
+            - configMap:
+                items:
+                - key: planefence.config.j2
+                  path: planefence.config.j2
+                - key: socket3003.pl
+                  mode: 493
+                  path: socket3003.pl
+                name: {{ include "adsb.fullname" . }}-fence
