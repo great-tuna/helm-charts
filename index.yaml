@@ -54,6 +54,18 @@ entries:
     urls:
     - https://github.com/illallangi/helm-charts/releases/download/akri-0.1.0/akri-0.1.0.tgz
     version: 0.1.0
+  folder2k8s:
+  - apiVersion: v2
+    appVersion: 0.1.0
+    created: "2024-11-23T13:27:09.194558192Z"
+    description: Synchronize Kubernetes with a folder of manifests
+    digest: c56d00dd80c4f1d0c879e7faf78bb12d5956a6fe3fbe758bd53ed4f99820f0ad
+    icon: https://avatars.githubusercontent.com/u/87524
+    name: folder2k8s
+    type: application
+    urls:
+    - https://github.com/illallangi/helm-charts/releases/download/folder2k8s-0.1.0/folder2k8s-0.1.0.tgz
+    version: 0.1.0
   httpbin:
   - apiVersion: v2
     appVersion: 0.2.1
@@ -77,4 +89,4 @@ entries:
     urls:
     - https://github.com/illallangi/helm-charts/releases/download/httpbin-0.1.0/httpbin-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-17T09:41:48.784255481Z"
+generated: "2024-11-23T13:27:09.277432167Z"
