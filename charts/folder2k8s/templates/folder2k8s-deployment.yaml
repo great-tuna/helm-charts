@@ -1,0 +1,98 @@
+{{- $repo := .Values.repo | required ".Values.repo is required." -}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "folder2k8s.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "folder2k8s.labels" . | nindent 4 }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "folder2k8s.selectorLabels" . | nindent 6 }}
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        {{- include "folder2k8s.labels" . | nindent 8 }}
+    spec:
+      serviceAccountName: {{ include "folder2k8s.serviceAccountName" . }}
+      containers:
+        - env:
+            - name: FOLDER2K8S_PATH
+              value: "/gitsync/repo"
+          name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default "latest" }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http-{{ .Chart.Name }}
+              containerPort: 8000
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: "/.well-known/health-check"
+              port: http-{{ .Chart.Name }}
+          startupProbe:
+            httpGet:
+              path: "/.well-known/health-check"
+              port: http-{{ .Chart.Name }}
+            failureThreshold: 30
+          volumeMounts:
+            - name: scratch
+              mountPath: /gitsync
+        - env:
+            - name: GITSYNC_REPO
+              value: "{{ $repo }}"
+            - name: GITSYNC_REF
+              value: "{{ .Values.ref }}"
+            - name: GITSYNC_ROOT
+              value: "/gitsync"
+            - name: GITSYNC_LINK
+              value: "repo"
+            - name: GITSYNC_WEBHOOK_URL
+              value: "http://localhost:8000/.well-known/receive-webhook/"
+            - name: GITSYNC_WEBHOOK_METHOD
+              value: "GET"
+            - name: GITSYNC_HTTP_BIND
+              value: ":8001"
+            - name: GITSYNC_HTTP_METRICS
+              value: "true"
+            - name: GITSYNC_HTTP_PPROF
+              value: "true"
+            - name: GITSYNC_GITHUB_APP_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "folder2k8s.fullname" . }}
+                  key: client-id
+            - name: GITSYNC_GITHUB_APP_INSTALLATION_ID
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "folder2k8s.fullname" . }}
+                  key: installation-id
+            - name: GITSYNC_GITHUB_APP_PRIVATE_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "folder2k8s.fullname" . }}
+                  key: private-key
+          name: git-sync
+          image: "{{ .Values.git_sync.image.repository }}:{{ .Values.git_sync.image.tag | default "latest" }}"
+          imagePullPolicy: {{ .Values.git_sync.image.pullPolicy }}
+          ports:
+            - name: http-git-sync
+              containerPort: 8001
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              port: http-git-sync
+          startupProbe:
+            httpGet:
+              port: http-git-sync
+            failureThreshold: 30
+          volumeMounts:
+            - name: scratch
+              mountPath: /gitsync
+      volumes:
+        - emptyDir: {}
+          name: scratch
