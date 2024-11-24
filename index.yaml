@@ -163,6 +163,17 @@ entries:
   folder2k8s:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2024-11-24T01:01:11.728950942Z"
+    description: Synchronize Kubernetes with a folder of manifests
+    digest: 75988ffeb0ee8082c3b6232bccfea56f29081cc6a44fba4eeecc3bb5553ef214
+    icon: https://avatars.githubusercontent.com/u/87524
+    name: folder2k8s
+    type: application
+    urls:
+    - https://github.com/illallangi/helm-charts/releases/download/folder2k8s-0.1.1/folder2k8s-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2024-11-23T13:27:09.194558192Z"
     description: Synchronize Kubernetes with a folder of manifests
     digest: c56d00dd80c4f1d0c879e7faf78bb12d5956a6fe3fbe758bd53ed4f99820f0ad
@@ -222,4 +233,4 @@ entries:
     urls:
     - https://github.com/illallangi/helm-charts/releases/download/tailscale-operator-0.1.0/tailscale-operator-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-23T16:48:17.556163874Z"
+generated: "2024-11-24T01:01:11.728982371Z"
