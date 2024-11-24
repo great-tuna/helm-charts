@@ -206,6 +206,23 @@ entries:
     urls:
     - https://github.com/illallangi/helm-charts/releases/download/httpbin-0.1.0/httpbin-0.1.0.tgz
     version: 0.1.0
+  local-path-provisioner:
+  - apiVersion: v1
+    appVersion: v0.0.30
+    created: "2024-11-24T01:29:58.127424959Z"
+    description: Use HostPath for persistent local storage with Kubernetes
+    digest: c30501d71961153efedeaad45cf9d8c0f017ecefadf8d805696f298516421cff
+    home: https://github.com/rancher/local-path-provisioner
+    keywords:
+    - storage
+    - hostpath
+    kubeVersion: '>=1.12.0-r0'
+    name: local-path-provisioner
+    sources:
+    - https://github.com/rancher/local-path-provisioner.git
+    urls:
+    - https://github.com/illallangi/helm-charts/releases/download/local-path-provisioner-0.0.30/local-path-provisioner-0.0.30.tgz
+    version: 0.0.30
   tailscale-operator:
   - apiVersion: v2
     appVersion: 1.76.6
@@ -233,4 +250,4 @@ entries:
     urls:
     - https://github.com/illallangi/helm-charts/releases/download/tailscale-operator-0.1.0/tailscale-operator-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-24T01:01:11.728982371Z"
+generated: "2024-11-24T01:29:58.127477236Z"
