@@ -10,7 +10,7 @@ entries:
     name: adsb
     type: application
     urls:
-    - https://github.com/illallangi/helm-charts/releases/download/adsb-0.1.2/adsb-0.1.2.tgz
+    - https://github.com/great-tuna/helm-charts/releases/download/adsb-0.1.2/adsb-0.1.2.tgz
     version: 0.1.2
   - apiVersion: v2
     appVersion: "561"
@@ -21,7 +21,7 @@ entries:
     name: adsb
     type: application
     urls:
-    - https://github.com/illallangi/helm-charts/releases/download/adsb-0.1.1/adsb-0.1.1.tgz
+    - https://github.com/great-tuna/helm-charts/releases/download/adsb-0.1.1/adsb-0.1.1.tgz
     version: 0.1.1
   - apiVersion: v2
     appVersion: "561"
@@ -32,7 +32,7 @@ entries:
     name: adsb
     type: application
     urls:
-    - https://github.com/illallangi/helm-charts/releases/download/adsb-0.1.0/adsb-0.1.0.tgz
+    - https://github.com/great-tuna/helm-charts/releases/download/adsb-0.1.0/adsb-0.1.0.tgz
     version: 0.1.0
   akri:
   - apiVersion: v2
@@ -49,7 +49,7 @@ entries:
     name: akri
     type: application
     urls:
-    - https://github.com/illallangi/helm-charts/releases/download/akri-0.1.6/akri-0.1.6.tgz
+    - https://github.com/great-tuna/helm-charts/releases/download/akri-0.1.6/akri-0.1.6.tgz
     version: 0.1.6
   - apiVersion: v2
     appVersion: 0.12.20
@@ -65,7 +65,7 @@ entries:
     name: akri
     type: application
     urls:
-    - https://github.com/illallangi/helm-charts/releases/download/akri-0.1.5/akri-0.1.5.tgz
+    - https://github.com/great-tuna/helm-charts/releases/download/akri-0.1.5/akri-0.1.5.tgz
     version: 0.1.5
   - apiVersion: v2
     appVersion: 0.12.20
@@ -81,7 +81,7 @@ entries:
     name: akri
     type: application
     urls:
-    - https://github.com/illallangi/helm-charts/releases/download/akri-0.1.4/akri-0.1.4.tgz
+    - https://github.com/great-tuna/helm-charts/releases/download/akri-0.1.4/akri-0.1.4.tgz
     version: 0.1.4
   - apiVersion: v2
     appVersion: 0.12.20
@@ -97,7 +97,7 @@ entries:
     name: akri
     type: application
     urls:
-    - https://github.com/illallangi/helm-charts/releases/download/akri-0.1.3/akri-0.1.3.tgz
+    - https://github.com/great-tuna/helm-charts/releases/download/akri-0.1.3/akri-0.1.3.tgz
     version: 0.1.3
   - apiVersion: v2
     appVersion: 0.12.20
@@ -113,7 +113,7 @@ entries:
     name: akri
     type: application
     urls:
-    - https://github.com/illallangi/helm-charts/releases/download/akri-0.1.1/akri-0.1.1.tgz
+    - https://github.com/great-tuna/helm-charts/releases/download/akri-0.1.1/akri-0.1.1.tgz
     version: 0.1.1
   - apiVersion: v2
     appVersion: 0.12.20
@@ -127,7 +127,7 @@ entries:
     name: akri
     type: application
     urls:
-    - https://github.com/illallangi/helm-charts/releases/download/akri-0.1.0/akri-0.1.0.tgz
+    - https://github.com/great-tuna/helm-charts/releases/download/akri-0.1.0/akri-0.1.0.tgz
     version: 0.1.0
   cloudflare:
   - apiVersion: v2
@@ -143,7 +143,7 @@ entries:
     name: cloudflare
     type: application
     urls:
-    - https://github.com/illallangi/helm-charts/releases/download/cloudflare-0.1.1/cloudflare-0.1.1.tgz
+    - https://github.com/great-tuna/helm-charts/releases/download/cloudflare-0.1.1/cloudflare-0.1.1.tgz
     version: 0.1.1
   - apiVersion: v2
     appVersion: 0.0.16
@@ -158,7 +158,7 @@ entries:
     name: cloudflare
     type: application
     urls:
-    - https://github.com/illallangi/helm-charts/releases/download/cloudflare-0.1.0/cloudflare-0.1.0.tgz
+    - https://github.com/great-tuna/helm-charts/releases/download/cloudflare-0.1.0/cloudflare-0.1.0.tgz
     version: 0.1.0
   folder2k8s:
   - apiVersion: v2
@@ -170,7 +170,7 @@ entries:
     name: folder2k8s
     type: application
     urls:
-    - https://github.com/illallangi/helm-charts/releases/download/folder2k8s-0.1.1/folder2k8s-0.1.1.tgz
+    - https://github.com/great-tuna/helm-charts/releases/download/folder2k8s-0.1.1/folder2k8s-0.1.1.tgz
     version: 0.1.1
   - apiVersion: v2
     appVersion: 0.1.0
@@ -181,7 +181,7 @@ entries:
     name: folder2k8s
     type: application
     urls:
-    - https://github.com/illallangi/helm-charts/releases/download/folder2k8s-0.1.0/folder2k8s-0.1.0.tgz
+    - https://github.com/great-tuna/helm-charts/releases/download/folder2k8s-0.1.0/folder2k8s-0.1.0.tgz
     version: 0.1.0
   httpbin:
   - apiVersion: v2
@@ -193,7 +193,7 @@ entries:
     name: httpbin
     type: application
     urls:
-    - https://github.com/illallangi/helm-charts/releases/download/httpbin-0.1.1/httpbin-0.1.1.tgz
+    - https://github.com/great-tuna/helm-charts/releases/download/httpbin-0.1.1/httpbin-0.1.1.tgz
     version: 0.1.1
   - apiVersion: v2
     appVersion: 0.2.1
@@ -204,7 +204,7 @@ entries:
     name: httpbin
     type: application
     urls:
-    - https://github.com/illallangi/helm-charts/releases/download/httpbin-0.1.0/httpbin-0.1.0.tgz
+    - https://github.com/great-tuna/helm-charts/releases/download/httpbin-0.1.0/httpbin-0.1.0.tgz
     version: 0.1.0
   local-path-provisioner:
   - apiVersion: v1
@@ -221,7 +221,7 @@ entries:
     sources:
     - https://github.com/rancher/local-path-provisioner.git
     urls:
-    - https://github.com/illallangi/helm-charts/releases/download/local-path-provisioner-0.0.30/local-path-provisioner-0.0.30.tgz
+    - https://github.com/great-tuna/helm-charts/releases/download/local-path-provisioner-0.0.30/local-path-provisioner-0.0.30.tgz
     version: 0.0.30
   tailscale-operator:
   - apiVersion: v2
@@ -237,7 +237,7 @@ entries:
     name: tailscale-operator
     type: application
     urls:
-    - https://github.com/illallangi/helm-charts/releases/download/tailscale-operator-0.1.1/tailscale-operator-0.1.1.tgz
+    - https://github.com/great-tuna/helm-charts/releases/download/tailscale-operator-0.1.1/tailscale-operator-0.1.1.tgz
     version: 0.1.1
   - apiVersion: v2
     appVersion: 1.76.6
@@ -248,6 +248,6 @@ entries:
     name: tailscale-operator
     type: application
     urls:
-    - https://github.com/illallangi/helm-charts/releases/download/tailscale-operator-0.1.0/tailscale-operator-0.1.0.tgz
+    - https://github.com/great-tuna/helm-charts/releases/download/tailscale-operator-0.1.0/tailscale-operator-0.1.0.tgz
     version: 0.1.0
 generated: "2024-11-24T01:29:58.127477236Z"
