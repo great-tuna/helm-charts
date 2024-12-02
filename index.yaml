@@ -37,6 +37,22 @@ entries:
   akri:
   - apiVersion: v2
     appVersion: 0.12.20
+    created: "2024-12-02T08:33:10.174358928Z"
+    dependencies:
+    - name: akri
+      repository: https://project-akri.github.io/akri/
+      version: 0.12.20
+    description: Kubernetes Resource Interface that lets you easily expose heterogeneous
+      leaf devices
+    digest: 7c49c8e31603416da2386253bfe831231892dd62b4629a839d5c1071dc565903
+    icon: https://avatars.githubusercontent.com/u/91915613
+    name: akri
+    type: application
+    urls:
+    - https://github.com/great-tuna/helm-charts/releases/download/akri-0.1.7/akri-0.1.7.tgz
+    version: 0.1.7
+  - apiVersion: v2
+    appVersion: 0.12.20
     created: "2024-11-23T16:17:12.872097029Z"
     dependencies:
     - name: akri
@@ -132,6 +148,21 @@ entries:
   cloudflare:
   - apiVersion: v2
     appVersion: 0.0.16
+    created: "2024-12-02T08:33:10.362998176Z"
+    dependencies:
+    - name: cloudflare-tunnel-ingress-controller
+      repository: https://helm.strrl.dev
+      version: 0.0.16
+    description: Illallangi Customised Helm chart for Cloudflare
+    digest: 42da9c89255de785d01653a447e88a77fb3faec02111b442d9503f64873a3dc6
+    icon: https://avatars.githubusercontent.com/u/314135
+    name: cloudflare
+    type: application
+    urls:
+    - https://github.com/great-tuna/helm-charts/releases/download/cloudflare-0.1.2/cloudflare-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 0.0.16
     created: "2024-11-23T16:48:17.556133387Z"
     dependencies:
     - name: cloudflare-tunnel-ingress-controller
@@ -163,6 +194,17 @@ entries:
   folder2k8s:
   - apiVersion: v2
     appVersion: 0.1.0
+    created: "2024-12-02T08:33:10.557824984Z"
+    description: Synchronize Kubernetes with a folder of manifests
+    digest: 2beefba70f2797d88e5048d2ef6a074648d27678de6e49e15cd1ad29e847c111
+    icon: https://avatars.githubusercontent.com/u/87524
+    name: folder2k8s
+    type: application
+    urls:
+    - https://github.com/great-tuna/helm-charts/releases/download/folder2k8s-0.1.2/folder2k8s-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 0.1.0
     created: "2024-11-24T01:01:11.728950942Z"
     description: Synchronize Kubernetes with a folder of manifests
     digest: 75988ffeb0ee8082c3b6232bccfea56f29081cc6a44fba4eeecc3bb5553ef214
@@ -184,6 +226,17 @@ entries:
     - https://github.com/great-tuna/helm-charts/releases/download/folder2k8s-0.1.0/folder2k8s-0.1.0.tgz
     version: 0.1.0
   httpbin:
+  - apiVersion: v2
+    appVersion: 0.2.1
+    created: "2024-12-02T08:33:10.738203655Z"
+    description: A simple HTTP service
+    digest: e61686e446f91c51c5d1df97595decbf6b93befed8eed9f778911f1371edf5c2
+    icon: https://avatars.githubusercontent.com/u/962416
+    name: httpbin
+    type: application
+    urls:
+    - https://github.com/great-tuna/helm-charts/releases/download/httpbin-0.1.2/httpbin-0.1.2.tgz
+    version: 0.1.2
   - apiVersion: v2
     appVersion: 0.2.1
     created: "2024-11-17T09:41:48.784242366Z"
@@ -209,6 +262,22 @@ entries:
   local-path-provisioner:
   - apiVersion: v1
     appVersion: v0.0.30
+    created: "2024-12-02T08:33:10.91356358Z"
+    description: Use HostPath for persistent local storage with Kubernetes
+    digest: dcfa98392941508b32d089c64d5edfa6b125f51363cf05460e8b3030a1264df2
+    home: https://github.com/rancher/local-path-provisioner
+    keywords:
+    - storage
+    - hostpath
+    kubeVersion: '>=1.12.0-r0'
+    name: local-path-provisioner
+    sources:
+    - https://github.com/rancher/local-path-provisioner.git
+    urls:
+    - https://github.com/great-tuna/helm-charts/releases/download/local-path-provisioner-0.1.0/local-path-provisioner-0.1.0.tgz
+    version: 0.1.0
+  - apiVersion: v1
+    appVersion: v0.0.30
     created: "2024-11-24T01:29:58.127424959Z"
     description: Use HostPath for persistent local storage with Kubernetes
     digest: c30501d71961153efedeaad45cf9d8c0f017ecefadf8d805696f298516421cff
@@ -224,6 +293,21 @@ entries:
     - https://github.com/great-tuna/helm-charts/releases/download/local-path-provisioner-0.0.30/local-path-provisioner-0.0.30.tgz
     version: 0.0.30
   tailscale-operator:
+  - apiVersion: v2
+    appVersion: 1.76.6
+    created: "2024-12-02T08:33:11.102906322Z"
+    dependencies:
+    - name: tailscale-operator
+      repository: https://pkgs.tailscale.com/helmcharts
+      version: 1.76.6
+    description: A Helm chart for Tailscale Kubernetes operator
+    digest: eeff547439eb14a93c50b9d9d2ad263bed920e80e53f5f4b2318d722ff401de6
+    icon: https://avatars.githubusercontent.com/u/48932923
+    name: tailscale-operator
+    type: application
+    urls:
+    - https://github.com/great-tuna/helm-charts/releases/download/tailscale-operator-0.1.2/tailscale-operator-0.1.2.tgz
+    version: 0.1.2
   - apiVersion: v2
     appVersion: 1.76.6
     created: "2024-11-23T14:29:13.311416293Z"
@@ -250,4 +334,4 @@ entries:
     urls:
     - https://github.com/great-tuna/helm-charts/releases/download/tailscale-operator-0.1.0/tailscale-operator-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-24T01:29:58.127477236Z"
+generated: "2024-12-02T08:33:11.102967566Z"
