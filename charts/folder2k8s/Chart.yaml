@@ -2,6 +2,6 @@ apiVersion: v2
 name: folder2k8s
 description: Synchronize Kubernetes with a folder of manifests
 type: application
-version: 0.1.1
+version: 0.1.2
 appVersion: "0.1.0"
 icon: https://avatars.githubusercontent.com/u/87524

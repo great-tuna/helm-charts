@@ -10,7 +10,7 @@ spec:
     object:
       name: {{ .Values.azureKeyVaultSecret.tailscaleClientIdSecretName }}
       type: secret
-  output: 
-    secret: 
+  output:
+    secret:
       name: operator-oauth
       dataKey: client_id

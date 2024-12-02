@@ -7,7 +7,7 @@ spec:
   discoveryHandler:
     discoveryDetails: |
       groupRecursive: true
-      udevRules: 
+      udevRules:
       - ATTR{idVendor}=="1050", ATTR{idProduct}=="0407", ATTR{serial}=="0030695886"
     name: udev
   brokerProperties: {}

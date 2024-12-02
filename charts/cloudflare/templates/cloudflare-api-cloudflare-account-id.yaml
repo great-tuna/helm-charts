@@ -10,7 +10,7 @@ spec:
     object:
       name: {{ index .Values "cloudflare-tunnel-ingress-controller" "cloudflare" "secretRef" "accountIDKey" }}
       type: secret
-  output: 
-    secret: 
+  output:
+    secret:
       name: {{ index .Values "cloudflare-tunnel-ingress-controller" "cloudflare" "secretRef" "name" }}
       dataKey: {{ index .Values "cloudflare-tunnel-ingress-controller" "cloudflare" "secretRef" "accountIDKey" }}
